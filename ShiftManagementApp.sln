@@ -19,7 +19,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShiftManagementApp.Applicat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShiftManagementApp.API", "ShiftManagementApp.API\ShiftManagementApp.API.csproj", "{037D8A97-CB9F-4AC1-A1D8-AD15CF1ED829}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShiftManagementApp.Test", "ShiftManagementApp.Test\ShiftManagementApp.Test.csproj", "{F4DB6564-8D38-482F-B90A-0D2BAB5A79FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShiftManagementApp.Test", "ShiftManagementApp.Test\ShiftManagementApp.Test.csproj", "{F4DB6564-8D38-482F-B90A-0D2BAB5A79FD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B210D04F-DF3E-4FFB-90E9-754D78D54CE4}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "shiftmanagementapp.ui", "ShiftManagementApp.UI\shiftmanagementapp.ui.esproj", "{0309312B-AD92-4156-977F-B348BC3A9555}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +51,12 @@ Global
 		{F4DB6564-8D38-482F-B90A-0D2BAB5A79FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4DB6564-8D38-482F-B90A-0D2BAB5A79FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4DB6564-8D38-482F-B90A-0D2BAB5A79FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0309312B-AD92-4156-977F-B348BC3A9555}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0309312B-AD92-4156-977F-B348BC3A9555}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0309312B-AD92-4156-977F-B348BC3A9555}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{0309312B-AD92-4156-977F-B348BC3A9555}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0309312B-AD92-4156-977F-B348BC3A9555}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0309312B-AD92-4156-977F-B348BC3A9555}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +69,8 @@ Global
 		{27B13060-CA41-4D02-8BAA-81F3931A13EC} = {65ADE714-49D9-46B4-9362-9FA31A2760B9}
 		{037D8A97-CB9F-4AC1-A1D8-AD15CF1ED829} = {65ADE714-49D9-46B4-9362-9FA31A2760B9}
 		{F4DB6564-8D38-482F-B90A-0D2BAB5A79FD} = {22EECAFB-2031-480C-829D-5848C7255B1E}
+		{B210D04F-DF3E-4FFB-90E9-754D78D54CE4} = {7BD7F527-E35B-42D2-B897-1A980BE67547}
+		{0309312B-AD92-4156-977F-B348BC3A9555} = {B210D04F-DF3E-4FFB-90E9-754D78D54CE4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F762978A-3F6D-484C-A975-88B33B627550}
