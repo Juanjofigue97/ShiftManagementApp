@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using ShiftManagementApp.API.Endpoints;
 using ShiftManagementApp.Application;
-using ShiftManagementApp.Application.UseCases;
+using ShiftManagementApp.Application.UseCases.PersonsCases;
 using ShiftManagementApp.Infrastructure;
 using ShiftManagementApp.Infrastructure.Context;
 
@@ -49,12 +50,9 @@ app.MapGet("/weatherforecast", () =>
 .WithName("GetWeatherForecast")
 .WithOpenApi();
 
-app.MapGet("/persons",async (GetAllPersonsUseCase person) =>
-{
-    return await person.ExecuteAsync();
-})
-.WithName("persons")
-.WithOpenApi();
+
+
+app.ConfigurePersonApi();
 
 app.Run();
 
