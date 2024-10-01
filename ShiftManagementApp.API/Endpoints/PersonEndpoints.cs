@@ -36,7 +36,7 @@ public static class PersonEndpoints
         {
             if (id != person.Id) return Results.BadRequest("ID mismatch");
             await updatePersonUseCase.ExecuteAsync(person);
-            return Results.NotFound();
+            return Results.Ok(person);
         })
         .WithName("UpdatePerson")
         .WithOpenApi();
@@ -44,7 +44,7 @@ public static class PersonEndpoints
         app.MapDelete("/persons/{id:int}", async (int id, DeletePersonUseCase deletePersonUseCase) =>
         {
             await deletePersonUseCase.ExecuteAsync(id);
-            return Results.NotFound();
+            return Results.Ok();
         })
         .WithName("DeletePerson")
         .WithOpenApi();

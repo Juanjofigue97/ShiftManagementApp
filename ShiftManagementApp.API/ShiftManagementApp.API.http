@@ -1,6 +1,41 @@
 @ShiftManagementApp.API_HostAddress = http://localhost:5260
 
-GET {{ShiftManagementApp.API_HostAddress}}/weatherforecast/
+### Get All Persons
+GET {{ShiftManagementApp.API_HostAddress}}/persons
 Accept: application/json
+
+### Create a New Person
+POST {{ShiftManagementApp.API_HostAddress}}/persons
+Content-Type: application/json
+Accept: application/json
+
+{
+    "idCard": 123213,    
+    "FirstName": "John",
+    "LastName": "Doe",
+    "Email": "john.doe@example.com",
+    "PhoneNumber": "1234567890",
+    "PersonType": 1
+}
+
+### Get a New Person
+
+GET {{ShiftManagementApp.API_HostAddress}}/persons/1
+
+
+### Edit a Person
+PUT {{ShiftManagementApp.API_HostAddress}}/persons/5
+Content-Type: application/json
+Accept: application/json
+
+{
+    "id": 5,
+    "idCard": 213132,
+    "firstName": "Test",
+    "lastName": "Test",
+    "email": "Test@gmail.com",
+    "phoneNumber": "2131231",
+    "personType": 1
+}
 
 ###
