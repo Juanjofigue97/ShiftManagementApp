@@ -12,35 +12,53 @@ namespace ShiftManagementApp.Infrastructure.Data;
 
 public class PersonRepository : IPersonRepository
 {
-    private readonly ShiftManagementDbContext _dbcontext;
+    private readonly ShiftManagementDbContext _dbContext;
 
     public PersonRepository(ShiftManagementDbContext dbContext)
     {
-        _dbcontext = dbContext;
-    }
-    public async Task AddPerson(Person person)
-    {
-        await _dbcontext.Persons.AddAsync(person);
-        await _dbcontext.SaveChangesAsync();
+        _dbContext = dbContext;
     }
 
-    public Task DeletePerson(int id)
+    public async Task AddPerson(Person person)
     {
-        throw new NotImplementedException();
+        await _dbContext.Persons.AddAsync(person);
+        await _dbContext.SaveChangesAsync();
+    }
+
+    public async Task DeletePerson(int id)
+    {
+        var person = await _dbContext.Persons.FindAsync(id);
+        if (person != null)
+        {
+            _dbContext.Persons.Remove(person);
+            await _dbContext.SaveChangesAsync();
+        }
     }
 
     public async Task<IEnumerable<Person>> GetAllPersons()
     {
-        return await _dbcontext.Persons.ToListAsync();
+        return await _dbContext.Persons.ToListAsync();
     }
 
-    public Task<Person> GetPersonById(int id)
+    public async Task<Person> GetPersonById(int id)
     {
-        throw new NotImplementedException();
+        return await _dbContext.Persons.FindAsync(id);
     }
 
-    public Task UpdatePerson(Person person)
+    public async Task UpdatePerson(Person person)
     {
-        throw new NotImplementedException();
+        var existingPerson = await _dbContext.Persons.FindAsync(person.Id);
+        if (existingPerson != null)
+        {
+            // Actualiza las propiedades necesarias
+            existingPerson.FirstName = person.FirstName;
+            existingPerson.LastName = person.LastName;
+            existingPerson.Email = person.Email;
+            existingPerson.PhoneNumber = person.PhoneNumber;
+            existingPerson.PersonType = person.PersonType;
+
+            _dbContext.Persons.Update(existingPerson);
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }
