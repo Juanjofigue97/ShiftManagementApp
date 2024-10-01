@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShiftManagementApp.Application.UseCases;
+namespace ShiftManagementApp.Application.UseCases.PersonsCases;
 
 public class GetAllPersonsUseCase
 {
