@@ -1,4 +1,5 @@
 ﻿using ShiftManagementApp.Application.UseCases.PersonsCases;
+using ShiftManagementApp.Application.Dtos.RequestDTO;
 using ShiftManagementApp.Library.Entities;
 
 namespace ShiftManagementApp.API.Endpoints;
@@ -24,10 +25,10 @@ public static class PersonEndpoints
         .WithName("GetPersonById")
         .WithOpenApi();
 
-        app.MapPost("/persons", async (Person person, CreatePersonUseCase addPersonUseCase) =>
+        app.MapPost("/persons", async (PersonRequestDTO personRequest, CreatePersonUseCase<PersonRequestDTO> addPersonUseCase) =>
         {
-            await addPersonUseCase.ExecuteAsync(person);
-            return Results.Created($"/persons/{person.Id}", person);
+            await addPersonUseCase.ExecuteAsync(personRequest);
+            return Results.Created();
         })
         .WithName("AddPerson")
         .WithOpenApi();

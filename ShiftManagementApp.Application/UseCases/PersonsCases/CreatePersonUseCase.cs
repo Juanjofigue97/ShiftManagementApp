@@ -8,17 +8,21 @@ using System.Threading.Tasks;
 
 namespace ShiftManagementApp.Application.UseCases.PersonsCases;
 
-public class CreatePersonUseCase
+public class CreatePersonUseCase<TDTO>
 {
     private readonly IPersonRepository _personRepository;
+    private readonly IMapper<TDTO, Person> _mapper;
 
-    public CreatePersonUseCase(IPersonRepository personRepository)
+    public CreatePersonUseCase(IPersonRepository personRepository, IMapper<TDTO, Person> mapper)
     {
         _personRepository = personRepository;
+        _mapper = mapper;
     }
 
-    public async Task ExecuteAsync(Person person)
+    public async Task ExecuteAsync(TDTO personDTO)
     {
+        var person = _mapper.ToEntity(personDTO);
+        
         if (person == null)
             throw new ArgumentNullException(nameof(person));
 

@@ -1,8 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using ShiftManagementApp.API.Endpoints;
 using ShiftManagementApp.Application;
+using ShiftManagementApp.Application.UseCases.PersonsCases;
 using ShiftManagementApp.Infrastructure;
 using ShiftManagementApp.Infrastructure.Context;
+using ShiftManagementApp.Application.Dtos.RequestDTO;
+using ShiftManagementApp.Infrastructure.Mappers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +22,9 @@ builder.Services.AddCors(options =>
                       });
 });
 
+
+
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -30,6 +36,8 @@ builder.Services.AddDbContext<ShiftManagementDbContext>(options =>
 builder.Services.AddInfrastructure();
 builder.Services.AddApplication();
 
+builder.Services.AddScoped<CreatePersonUseCase<PersonRequestDTO>>();
+builder.Services.AddScoped<IMapper<PersonRequestDTO, Person>, PersonMapper>();
 
 var app = builder.Build();
 

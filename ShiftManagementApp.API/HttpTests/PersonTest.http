@@ -10,8 +10,8 @@ Content-Type: application/json
 Accept: application/json
 
 {
-    "idCard": 123213,    
-    "FirstName": "John",
+    "idCard": 31322,    
+    "FirstName": "Test",
     "LastName": "Doe",
     "Email": "john.doe@example.com",
     "PhoneNumber": "1234567890",

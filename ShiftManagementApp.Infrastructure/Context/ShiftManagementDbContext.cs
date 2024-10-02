@@ -22,6 +22,26 @@ public class ShiftManagementDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        
+        modelBuilder.Entity<ShiftControl>()
+            .HasOne(sc => sc.Person)
+            .WithMany()
+            .HasForeignKey(sc => sc.PersonID);
+
+        modelBuilder.Entity<ShiftControl>()
+            .HasOne(sc => sc.Service)
+            .WithMany()
+            .HasForeignKey(sc => sc.ServiceID);
+
+        modelBuilder.Entity<ShiftControl>()
+            .HasOne(sc => sc.ServiceLocation)
+            .WithMany()
+            .HasForeignKey(sc => sc.ServiceLocationID);
+
+
+        modelBuilder.Entity<ServiceLocation>()
+            .HasOne(sl => sl.Service)
+            .WithMany()
+            .HasForeignKey(sl => sl.ServiceID);
     }
+
 }
