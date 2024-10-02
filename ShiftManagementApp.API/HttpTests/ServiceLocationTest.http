@@ -1,0 +1,35 @@
+@ShiftManagementApp.API_HostAddress = http://localhost:5260
+
+### Get All Service
+GET {{ShiftManagementApp.API_HostAddress}}/servicelocations
+Accept: application/json
+
+### Create a New Service
+POST {{ShiftManagementApp.API_HostAddress}}/servicelocations
+Content-Type: application/json
+Accept: application/json
+
+{
+  "locationName": "Caja 1",
+  "serviceID": 1,
+  "status": 1,
+}
+
+### Get a New Service
+
+GET {{ShiftManagementApp.API_HostAddress}}/servicelocations/1
+
+
+### Edit a Service
+PUT {{ShiftManagementApp.API_HostAddress}}/servicelocations/1
+Content-Type: application/json
+Accept: application/json
+
+{
+    "id": 1,
+    "serviceName": "Caja",
+    "description": "Recibos de Agua, Luz etc",
+    "serviceDuration": 10
+}
+
+###
