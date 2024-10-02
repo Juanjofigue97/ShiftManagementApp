@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace ShiftManagementApp.Application.UseCases.PersonsCases;
 
-public class AddPersonUseCase
+public class CreatePersonUseCase
 {
     private readonly IPersonRepository _personRepository;
 
-    public AddPersonUseCase(IPersonRepository personRepository)
+    public CreatePersonUseCase(IPersonRepository personRepository)
     {
         _personRepository = personRepository;
     }

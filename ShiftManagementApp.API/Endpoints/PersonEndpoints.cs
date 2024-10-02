@@ -24,7 +24,7 @@ public static class PersonEndpoints
         .WithName("GetPersonById")
         .WithOpenApi();
 
-        app.MapPost("/persons", async (Person person, AddPersonUseCase addPersonUseCase) =>
+        app.MapPost("/persons", async (Person person, CreatePersonUseCase addPersonUseCase) =>
         {
             await addPersonUseCase.ExecuteAsync(person);
             return Results.Created($"/persons/{person.Id}", person);
