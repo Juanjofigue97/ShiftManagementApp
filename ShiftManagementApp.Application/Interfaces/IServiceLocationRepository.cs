@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace ShiftManagementApp.Application.Interfaces;
 
-internal interface IServiceLocationRepository
+public interface IServiceLocationRepository
 {
-    ServiceLocation GetLocationById(int id);
-    IEnumerable<ServiceLocation> GetAllLocations();
-    void AddLocation(ServiceLocation location);
-    void UpdateLocation(ServiceLocation location);
-    void DeleteLocation(int id);
+    Task<ServiceLocation> GetServiceLocationByIdAsync(int id);
+    Task<IEnumerable<ServiceLocation>> GetAllServiceLocationsAsync();
+    Task AddServiceLocationAsync(ServiceLocation serviceLocation);
+    Task UpdateServiceLocationAsync(ServiceLocation serviceLocation);
+    Task DeleteServiceLocationAsync(int id);
 }

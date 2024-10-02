@@ -43,6 +43,10 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+//Add Endpoints
+
 app.ConfigurePersonApi();
+app.ConfigureServiceApi();
+app.ConfigureServiceLocationApi();
 
 app.Run();

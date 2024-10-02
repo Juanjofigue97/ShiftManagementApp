@@ -13,7 +13,9 @@ public static class DependencyInjection
         //services.AddDbContext<ShiftManagementDbContext>(options =>
         //        options.UseSqlServer(connectionString));
         
-        services.AddTransient<IPersonRepository,PersonRepository>();
+        services.AddScoped<IPersonRepository,PersonRepository>();
+        services.AddScoped<IServiceRepository,ServiceRepository>();
+        services.AddScoped<IServiceLocationRepository,ServiceLocationRepository>();
         return services;
     }
 }

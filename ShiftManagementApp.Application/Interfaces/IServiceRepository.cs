@@ -9,9 +9,10 @@ namespace ShiftManagementApp.Application.Interfaces;
 
 public interface IServiceRepository
 {
-    Service GetServiceById(int id);
-    IEnumerable<Service> GetAllServices();
-    void AddService(Service service);
-    void UpdateService(Service service);
-    void DeleteService(int id);
+    Task<Service> GetServiceByIdAsync(int id);               
+    Task<IEnumerable<Service>> GetAllServicesAsync();        
+    Task AddServiceAsync(Service service);                   
+    Task UpdateServiceAsync(Service service);                
+    Task DeleteServiceAsync(int id);                        
 }
+
