@@ -36,8 +36,7 @@ builder.Services.AddDbContext<ShiftManagementDbContext>(options =>
 builder.Services.AddInfrastructure();
 builder.Services.AddApplication();
 
-builder.Services.AddScoped<CreatePersonUseCase<PersonRequestDTO>>();
-builder.Services.AddScoped<IMapper<PersonRequestDTO, Person>, PersonMapper>();
+
 
 var app = builder.Build();
 

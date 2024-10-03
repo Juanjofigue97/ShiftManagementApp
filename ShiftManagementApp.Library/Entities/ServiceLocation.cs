@@ -25,5 +25,5 @@ public class ServiceLocation
     [Range(0, 1, ErrorMessage = "El estado debe ser 0 (inactivo) o 1 (activo).")]
     public int Status { get; set; }
 
-    public Service? Service { get; set; }  // Relación con la entidad Service
+    public Service? Service { get; set; } 
 }

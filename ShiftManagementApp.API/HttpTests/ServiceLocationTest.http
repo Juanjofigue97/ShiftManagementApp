@@ -10,9 +10,10 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "locationName": "Caja 1",
+
+  "locationName": "Caja 3",
   "serviceID": 1,
-  "status": 1,
+  "status": 1
 }
 
 ### Get a New Service

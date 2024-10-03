@@ -9,10 +9,20 @@ using System.Threading.Tasks;
 
 namespace ShiftManagementApp.Application.Dtos.RequestDTO;
 
-public class ServiceLocationRequestDTO
+public class ShiftControlRequestDTO
 {
     public int Id { get; set; }
-    public string? LocationName { get; set; }
+
+    public int PersonID { get; set; }
+
     public int ServiceID { get; set; }
+
+    public int ServiceLocationID { get; set; }
+
+    public DateTime StartTime { get; set; }
+
+    public DateTime EndTime { get; set; }
+
     public int Status { get; set; }
+
 }

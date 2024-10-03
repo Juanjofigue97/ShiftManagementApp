@@ -26,7 +26,9 @@ public class ServiceLocationRepository : IServiceLocationRepository
 
     public async Task<IEnumerable<ServiceLocation>> GetAllServiceLocationsAsync()
     {
-        return await _dbContext.ServiceLocations.ToListAsync();
+        return await _dbContext.ServiceLocations
+                    .Include(sl => sl.Service)
+                    .ToListAsync();
     }
 
     public async Task AddServiceLocationAsync(ServiceLocation serviceLocation)

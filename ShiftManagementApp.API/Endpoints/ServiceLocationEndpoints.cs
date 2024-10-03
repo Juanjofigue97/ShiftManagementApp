@@ -1,4 +1,5 @@
-﻿using ShiftManagementApp.Application.UseCases.ServicesLocationsCases;
+﻿using ShiftManagementApp.Application.Dtos.RequestDTO;
+using ShiftManagementApp.Application.UseCases.ServicesLocationsCases;
 using ShiftManagementApp.Library.Entities;
 
 namespace ShiftManagementApp.API.Endpoints;
@@ -24,10 +25,10 @@ public static class ServiceLocationEndpoints
         .WithName("GetServiceLocationById")
         .WithOpenApi();
 
-        app.MapPost("/servicelocations", async (ServiceLocation serviceLocation, CreateServiceLocationUseCase createServiceLocationUseCase) =>
+        app.MapPost("/servicelocations", async (ServiceLocationRequestDTO serviceLocationRequest, CreateServiceLocationUseCase<ServiceLocationRequestDTO> createServiceLocationUseCase) =>
         {
-            await createServiceLocationUseCase.ExecuteAsync(serviceLocation);
-            return Results.Created($"/servicelocations/{serviceLocation.Id}", serviceLocation);
+            await createServiceLocationUseCase.ExecuteAsync(serviceLocationRequest);
+            return Results.Created();
         })
         .WithName("AddServiceLocation")
         .WithOpenApi();

@@ -1,8 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using ShiftManagementApp.Application.Dtos.RequestDTO;
 using ShiftManagementApp.Application.Interfaces;
 using ShiftManagementApp.Application.UseCases.PersonsCases;
 using ShiftManagementApp.Application.UseCases.ServicesCases;
 using ShiftManagementApp.Application.UseCases.ServicesLocationsCases;
+using ShiftManagementApp.Application.UseCases.ShiftControlCases;
 
 namespace ShiftManagementApp.Application;
 public static class DependencyInjection
@@ -22,6 +24,7 @@ public static class DependencyInjection
         services.AddScoped<GetPersonByIdUseCase>();
         services.AddScoped<DeletePersonUseCase>();
         services.AddScoped<UpdatePersonUseCase>();
+        services.AddScoped<CreatePersonUseCase<PersonRequestDTO>>();
 
         return services;
     }
@@ -40,10 +43,21 @@ public static class DependencyInjection
     private static IServiceCollection AddServiceLocationServices(this IServiceCollection services)
     {
         services.AddScoped<GetAllServiceLocationsUseCase>();
-        services.AddScoped<CreateServiceLocationUseCase>();
+        services.AddScoped<CreateServiceLocationUseCase<ServiceLocationRequestDTO>>();
         services.AddScoped<GetServiceLocationByIdUseCase>();
         services.AddScoped<DeleteServiceLocationUseCase>();
         services.AddScoped<UpdateServiceLocationUseCase>();
+
+        return services;
+    }
+    private static IServiceCollection AddShiftControlServices(this IServiceCollection services)
+    {
+        // Registrar casos de uso para ShiftControl
+        services.AddScoped<GetAllShiftControlsUseCase>();
+        services.AddScoped<CreateShiftControlUseCase<ShiftControlRequestDTO>>();
+        services.AddScoped<GetShiftControlByIdUseCase>();
+        services.AddScoped<DeleteShiftControlUseCase>();
+        services.AddScoped<UpdateShiftControlUseCase<ShiftControlRequestDTO>>();
 
         return services;
     }

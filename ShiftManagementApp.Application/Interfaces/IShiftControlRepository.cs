@@ -1,5 +1,6 @@
 ﻿using ShiftManagementApp.Library.Entities;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,9 +10,10 @@ namespace ShiftManagementApp.Application.Interfaces;
 
 public interface IShiftControlRepository
 {
-    ShiftControl GetShiftControlById(int id);
-    IEnumerable<ShiftControl> GetShiftControlsByPerson(int personId);
-    void AddShiftControl(ShiftControl shiftControl);
-    void UpdateShiftControl(ShiftControl shiftControl);
-    void DeleteShiftControl(int id);
+    Task<IEnumerable<ShiftControl>> GetAllShiftControlsAsync();
+    Task <ShiftControl> GetShiftControlById(int id);
+    Task<IEnumerable<ShiftControl>> GetShiftControlsByPerson(int personId);
+    Task AddShiftControl(ShiftControl shiftControl);
+    Task UpdateShiftControl(ShiftControl shiftControl);
+    Task DeleteShiftControl(int id);
 }

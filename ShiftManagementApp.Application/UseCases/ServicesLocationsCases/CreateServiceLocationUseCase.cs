@@ -8,17 +8,21 @@ using System.Threading.Tasks;
 
 namespace ShiftManagementApp.Application.UseCases.ServicesLocationsCases;
 
-public class CreateServiceLocationUseCase
+public class CreateServiceLocationUseCase<TDTO>
 {
     private readonly IServiceLocationRepository _serviceLocationRepository;
+    private readonly IMapper<TDTO, ServiceLocation> _mapper;
 
-    public CreateServiceLocationUseCase(IServiceLocationRepository serviceLocationRepository)
+
+    public CreateServiceLocationUseCase(IServiceLocationRepository serviceLocationRepository, IMapper<TDTO, ServiceLocation> mapper)
     {
         _serviceLocationRepository = serviceLocationRepository;
+        _mapper = mapper;
     }
 
-    public async Task ExecuteAsync(ServiceLocation serviceLocation)
+    public async Task ExecuteAsync(TDTO serviceLocationDTO)
     {
+        var serviceLocation = _mapper.ToEntity(serviceLocationDTO);
         if (serviceLocation == null)
             throw new ArgumentNullException(nameof(serviceLocation));
 
