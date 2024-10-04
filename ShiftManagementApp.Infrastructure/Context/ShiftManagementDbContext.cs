@@ -25,23 +25,26 @@ public class ShiftManagementDbContext : DbContext
         modelBuilder.Entity<ShiftControl>()
             .HasOne(sc => sc.Person)
             .WithMany()
-            .HasForeignKey(sc => sc.PersonID);
+            .HasForeignKey(sc => sc.PersonID)
+            .OnDelete(DeleteBehavior.Restrict); 
 
         modelBuilder.Entity<ShiftControl>()
             .HasOne(sc => sc.Service)
             .WithMany()
-            .HasForeignKey(sc => sc.ServiceID);
+            .HasForeignKey(sc => sc.ServiceID)
+            .OnDelete(DeleteBehavior.Restrict);
 
         modelBuilder.Entity<ShiftControl>()
             .HasOne(sc => sc.ServiceLocation)
             .WithMany()
-            .HasForeignKey(sc => sc.ServiceLocationID);
-
+            .HasForeignKey(sc => sc.ServiceLocationID)
+            .OnDelete(DeleteBehavior.Restrict); 
 
         modelBuilder.Entity<ServiceLocation>()
             .HasOne(sl => sl.Service)
             .WithMany()
-            .HasForeignKey(sl => sl.ServiceID);
+            .HasForeignKey(sl => sl.ServiceID)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 
 }

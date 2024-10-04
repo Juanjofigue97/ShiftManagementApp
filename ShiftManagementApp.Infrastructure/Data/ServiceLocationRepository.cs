@@ -52,5 +52,11 @@ public class ServiceLocationRepository : IServiceLocationRepository
             await _dbContext.SaveChangesAsync();
         }
     }
+
+    public async Task<bool> UpdateServiceStatusLocationAsync(ServiceLocation serviceLocation)
+    {
+        _dbContext.ServiceLocations.Update(serviceLocation);
+        return await _dbContext.SaveChangesAsync() > 0;
+    }
 }
 

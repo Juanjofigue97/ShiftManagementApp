@@ -49,5 +49,17 @@ public static class ServiceLocationEndpoints
         })
         .WithName("DeleteServiceLocation")
         .WithOpenApi();
+
+        app.MapPost("/servicelocations/{id:int}/status", async (int id, bool isAttended, UpdateServiceLocationStatusUseCase updateServiceLocationStatusUseCase) =>
+        {
+            var result = await updateServiceLocationStatusUseCase.ExecuteAsync(id, isAttended);
+            if (result)
+            {
+                return Results.Ok("Service location status updated.");
+            }
+            return Results.BadRequest("Failed to update service location status.");
+        })
+        .WithName("UpdateServiceLocationStatus")
+        .WithOpenApi();
     }
 }

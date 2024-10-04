@@ -14,4 +14,5 @@ public interface IServiceLocationRepository
     Task AddServiceLocationAsync(ServiceLocation serviceLocation);
     Task UpdateServiceLocationAsync(ServiceLocation serviceLocation);
     Task DeleteServiceLocationAsync(int id);
+    Task<bool> UpdateServiceStatusLocationAsync(ServiceLocation serviceLocation);
 }

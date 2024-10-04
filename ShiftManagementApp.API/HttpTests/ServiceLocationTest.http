@@ -11,8 +11,8 @@ Accept: application/json
 
 {
 
-  "locationName": "Caja 3",
-  "serviceID": 1,
+  "locationName": "Caja 1",
+  "serviceID": 7,
   "status": 1
 }
 
