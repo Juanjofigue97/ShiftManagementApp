@@ -1,0 +1,41 @@
+﻿@ShiftManagementApp.API_HostAddress = http://localhost:5260
+
+### Get All shiftcontrols
+GET {{ShiftManagementApp.API_HostAddress}}/shiftcontrols
+Accept: application/json
+
+### Create a New shiftcontrols
+POST {{ShiftManagementApp.API_HostAddress}}/shiftcontrols
+Content-Type: application/json
+Accept: application/json
+
+{
+  "personID": 1,
+  "serviceID": 1,
+  "serviceLocationID": 1,
+  "startTime": "2024-10-04T18:58:00.835Z",
+  "endTime": "2024-10-04T18:58:00.835Z",
+  "status": 1
+}
+
+### Get a New shiftcontrols
+
+GET {{ShiftManagementApp.API_HostAddress}}/services/1
+
+
+### Edit a shiftcontrols
+PUT {{ShiftManagementApp.API_HostAddress}}/services/1
+Content-Type: application/json
+Accept: application/json
+
+{
+    "id": 1,
+    "personID": 1,
+    "serviceID": 1,
+    "serviceLocationID": 1,
+    "startTime": "2024-10-04T18:58:00.835Z",
+    "endTime": "2024-10-04T18:58:00.835Z",
+    "status": 1
+}
+
+###

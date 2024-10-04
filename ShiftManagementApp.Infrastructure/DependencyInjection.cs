@@ -20,9 +20,11 @@ public static class DependencyInjection
         services.AddScoped<IPersonRepository,PersonRepository>();
         services.AddScoped<IServiceRepository,ServiceRepository>();
         services.AddScoped<IServiceLocationRepository,ServiceLocationRepository>();
+        services.AddScoped<IShiftControlRepository,ShiftControlRepository>();
 
         services.AddScoped<IMapper<PersonRequestDTO, Person>, PersonMapper>();
         services.AddScoped<IMapper<ServiceLocationRequestDTO, ServiceLocation>, ServiceLocationMapper>();
+        services.AddScoped<IMapper<ShiftControlRequestDTO, ShiftControl>, ShiftControlMapper>();
 
         return services;
     }

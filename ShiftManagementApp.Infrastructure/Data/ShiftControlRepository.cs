@@ -19,10 +19,13 @@ public class ShiftControlRepository : IShiftControlRepository
         _dbContext = dbContext;
     }
 
-    // Obtener todos los ShiftControl
     public async Task<IEnumerable<ShiftControl>> GetAllShiftControlsAsync()
     {
-        return await _dbContext.ShiftControls.ToListAsync();
+        return await _dbContext.ShiftControls
+            .Include(s => s.Service)
+            .Include(p => p.Person)
+            .Include(sl => sl.ServiceLocation)
+            .ToListAsync();
     }
 
     // Obtener ShiftControl por ID
@@ -31,22 +34,17 @@ public class ShiftControlRepository : IShiftControlRepository
         return await _dbContext.ShiftControls
             .FindAsync(id);
     }
-
-    // Obtener ShiftControl por persona
     public async Task<IEnumerable<ShiftControl>> GetShiftControlsByPerson(int personId)
     {
         return await _dbContext.ShiftControls
             .Where(sc => sc.PersonID == personId).ToListAsync();
     }
-
-    // Agregar un nuevo ShiftControl
     public async Task AddShiftControl(ShiftControl shiftControl)
     {
         await _dbContext.ShiftControls.AddAsync(shiftControl);
         await _dbContext.SaveChangesAsync();
     }
 
-    // Actualizar ShiftControl existente
     public async Task UpdateShiftControl(ShiftControl shiftControl)
     {
         _dbContext.ShiftControls.Update(shiftControl);

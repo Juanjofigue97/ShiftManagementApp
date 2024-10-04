@@ -14,7 +14,7 @@ public static class DependencyInjection
         services.AddPersonServices();
         services.AddServiceServices();
         services.AddServiceLocationServices();
-
+        services.AddShiftControlServices();
         return services;
     }
 
@@ -52,7 +52,6 @@ public static class DependencyInjection
     }
     private static IServiceCollection AddShiftControlServices(this IServiceCollection services)
     {
-        // Registrar casos de uso para ShiftControl
         services.AddScoped<GetAllShiftControlsUseCase>();
         services.AddScoped<CreateShiftControlUseCase<ShiftControlRequestDTO>>();
         services.AddScoped<GetShiftControlByIdUseCase>();

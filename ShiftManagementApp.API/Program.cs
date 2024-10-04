@@ -55,5 +55,6 @@ app.UseHttpsRedirection();
 app.ConfigurePersonApi();
 app.ConfigureServiceApi();
 app.ConfigureServiceLocationApi();
+app.ConfigureShiftControlApi();
 
 app.Run();
