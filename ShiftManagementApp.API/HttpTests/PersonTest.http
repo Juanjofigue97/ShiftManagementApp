@@ -10,17 +10,17 @@ Content-Type: application/json
 Accept: application/json
 
 {
-    "idCard": 31322,    
-    "FirstName": "Test",
-    "LastName": "Doe",
-    "Email": "john.doe@example.com",
-    "PhoneNumber": "1234567890",
+    "idCard": 1233188475,    
+    "FirstName": "Juan",
+    "LastName": "Figueroa",
+    "Email": "juan.Figueroa@example.com",
+    "PhoneNumber": "3219748471",
     "PersonType": 1
 }
 
 ### Get a New Person
 
-GET {{ShiftManagementApp.API_HostAddress}}/persons/1
+GET {{ShiftManagementApp.API_HostAddress}}/persons/5
 
 
 ### Edit a Person
@@ -30,12 +30,14 @@ Accept: application/json
 
 {
     "id": 5,
-    "idCard": 213132,
-    "firstName": "Test",
+    "idCard": 30732024,
+    "firstName": "TestPrueba",
     "lastName": "Test",
     "email": "Test@gmail.com",
     "phoneNumber": "2131231",
     "personType": 1
 }
 
-###
+### Delete a Person
+
+DELETE {{ShiftManagementApp.API_HostAddress}}/persons/1
