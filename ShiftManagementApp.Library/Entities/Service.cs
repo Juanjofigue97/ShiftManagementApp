@@ -23,5 +23,8 @@ public class Service
     [Required(ErrorMessage = "La duración del servicio es obligatoria.")]
     [Range(1, int.MaxValue, ErrorMessage = "La duración del servicio debe ser mayor a 0.")]
     public int ServiceDuration { get; set; }
+
+    [Required(ErrorMessage = "El estado de validez es obligatorio.")]
+    public bool IsValid { get; set; } = true; 
 }
 

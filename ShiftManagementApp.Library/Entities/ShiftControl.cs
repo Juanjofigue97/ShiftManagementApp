@@ -33,7 +33,7 @@ public class ShiftControl
     public DateTime EndTime { get; set; }
 
     [Required(ErrorMessage = "El estado es obligatorio.")]
-    [Range(0, 1, ErrorMessage = "El estado debe ser 0 (inactivo) o 1 (activo).")]
+    [Range(0, 2, ErrorMessage = "El estado debe ser 0 (inactivo) o 1 (activo).")]
     public int Status { get; set; }
 
     // Propiedades de navegación

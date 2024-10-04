@@ -24,6 +24,7 @@ public class ServiceLocation
     [Required(ErrorMessage = "El estado es obligatorio.")]
     [Range(0, 1, ErrorMessage = "El estado debe ser 0 (inactivo) o 1 (activo).")]
     public int Status { get; set; }
+    public bool IsValid { get; set; } = true;
 
     public Service? Service { get; set; } 
 }
