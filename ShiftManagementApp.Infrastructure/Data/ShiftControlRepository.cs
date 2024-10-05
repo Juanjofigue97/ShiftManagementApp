@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ShiftManagementApp.Infrastructure.Data;
 
-public class ShiftControlRepository : IShiftControlRepository
+public class ShiftControlRepository : ,IShiftControlRepository
 {
     private readonly ShiftManagementDbContext _dbContext;
 
