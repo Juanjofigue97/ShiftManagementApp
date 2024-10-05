@@ -33,8 +33,6 @@ The Shift Management System is a web-based application designed to help business
     dotnet run
     ```
 
-http://localhost:5260
-
 ## Front end
 
 1. Navigate to the project directory
@@ -51,4 +49,3 @@ http://localhost:5260
     ```bash
     npm dev run
     ```
-http://localhost:5173
